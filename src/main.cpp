@@ -180,7 +180,7 @@ void run(SDL_Window *window) {
         // so frame drops do not affect animation speeds.
         last = now;
         now = SDL_GetPerformanceCounter();
-        delta = (double)((now - last) * 1000 / SDL_GetPerformanceFrequency()) / 16 / 60;
+        delta = (double)((now - last) * 1000 / (double)SDL_GetPerformanceFrequency()) / 16 / 60;
 
         // Check for key / window system events (only used to check for close
         // request for this example).
