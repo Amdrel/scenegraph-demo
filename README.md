@@ -18,8 +18,13 @@ To run you need to set an environment variable to tell the program where the
 graphical assets are located before running.
 
 ```sh
-export SCENEGRAPHDEMO_RESOURCE_DIR=$YOUR_PROJECT_DIR/resources
-./scenegraph-demo
+$ export SCENEGRAPHDEMO_RESOURCE_DIR=$YOUR_PROJECT_DIR/resources
+```
+
+After that's done you can run it like any other program.
+
+```sh
+$ ./scenegraph-demo
 ```
 
 ## License
