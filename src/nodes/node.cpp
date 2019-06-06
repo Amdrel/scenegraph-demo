@@ -13,6 +13,8 @@ namespace scenegraphdemo {
         this->position = position;
         this->rotation = rotation;
         this->scale = scale;
+        this->worldTransform = glm::mat4(1.0f);
+        this->localTransform = glm::mat4(1.0f);
     }
 
     Node::~Node() {
@@ -29,7 +31,7 @@ namespace scenegraphdemo {
             if (parent.get() != nullptr) {
                 worldTransform = parent.get()->worldTransform * localTransform;
             } else {
-                worldTransform = glm::mat4() * localTransform;
+                worldTransform = glm::mat4(1.0f) * localTransform;
             }
 
             dirty = false;
@@ -48,7 +50,7 @@ namespace scenegraphdemo {
     // multiplications (and to learn quaternions).
     void Node::updateLocalTransform() {
         if (dirty) {
-            auto transform = glm::mat4();
+            auto transform = glm::mat4(1.0f);
             transform = glm::translate(transform, position);
             transform = glm::rotate(transform, rotation.y, glm::vec3(0.0, 1.0, 0.0));
             transform = glm::rotate(transform, rotation.x, glm::vec3(1.0, 0.0, 0.0));

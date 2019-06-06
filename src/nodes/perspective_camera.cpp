@@ -13,6 +13,8 @@ namespace scenegraphdemo {
         this->position = position;
         this->rotation = rotation;
         this->scale = scale;
+        this->worldTransform = glm::mat4(1.0f);
+        this->localTransform = glm::mat4(1.0f);
         this->projectionMatrix = glm::perspective(fov, aspect, near, far);
     }
 
